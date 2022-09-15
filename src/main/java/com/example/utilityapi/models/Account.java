@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class Account {
 
-    @NotEmpty(message = "You must supply a value for username.")
+    @NotEmpty(message = "You must have a value for username.")
     private String username;
     @Size(max = 10, message = "Max number of characters for password is 10")
     private String password;

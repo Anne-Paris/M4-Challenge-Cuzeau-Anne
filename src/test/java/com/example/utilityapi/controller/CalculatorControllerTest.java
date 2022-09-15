@@ -43,7 +43,7 @@ public class CalculatorControllerTest {
 
         mockMvc.perform(get("/calculator/divide/?value1=1&value2=0"))
                 .andDo(print())
-                .andExpect(status().is4xxClientError());
+                .andExpect(status().is5xxServerError());
     }
 
     // Testing GET calculator/square/{id}

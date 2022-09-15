@@ -1,20 +1,17 @@
 package com.example.utilityapi.models;
 
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 
 public class Record {
 
-    @NotEmpty(message = "You must supply a value for artist.")
+    @NotEmpty(message = "You must enter a artist name.")
     private String artist;
-    @NotEmpty(message ="You must enter an album.")
+    @NotEmpty(message = "You must enter an album title.")
     private String album;
-    @NotEmpty(message = "you must enter a year")
-    @Size(min = 4, max = 4, message = "You must enter a year with 4 digit")
+    @Size(min = 4, max = 4, message = "Year must be YYYY.")
     private String year;
-    @NotNull(message = "Id must not be null")
     private int id;
 
     public Record() { }

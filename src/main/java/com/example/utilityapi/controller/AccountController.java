@@ -27,6 +27,13 @@ public class AccountController {
     @ResponseStatus(value = HttpStatus.CREATED)
     public Account createAccount(@RequestBody @Valid Account account) {
 
+        //If the Username if the new Account object matches any username in AccountList, then throw an exception
+        for (Account a : accountList){
+            if( a.getUsername().equals(account.getUsername()))
+            {
+                throw new IllegalArgumentException("Username already in use.");
+            }
+        }
         account.setId(idCounter++);
         accountList.add(account);
 

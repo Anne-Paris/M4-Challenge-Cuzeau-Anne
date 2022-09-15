@@ -45,6 +45,10 @@ public class RecordStoreController {
             }
         }
 
+        if (foundRecord == null){
+            throw new IllegalArgumentException("No found record.");
+        }
+
         return foundRecord;
     }
 }
