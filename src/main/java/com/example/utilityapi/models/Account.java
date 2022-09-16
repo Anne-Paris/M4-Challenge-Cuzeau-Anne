@@ -8,7 +8,7 @@ public class Account {
 
     @NotEmpty(message = "You must have a value for username.")
     private String username;
-    @Size(max = 10, message = "Max number of characters for password is 10")
+    @Size(min = 5, max = 10, message = "Max number of characters for password is 10")
     private String password;
     private int id;
 

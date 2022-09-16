@@ -1,9 +1,13 @@
 package com.example.utilityapi.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Size;
+import java.rmi.ServerException;
 
 @RestController
 public class CalculatorController {
@@ -13,12 +17,12 @@ public class CalculatorController {
 
     @RequestMapping(value = "/calculator/divide", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public double divide(@RequestParam @Valid int value1, @RequestParam @Valid int value2) {
+    public double divide(@RequestParam @Valid int value1, @RequestParam @Valid  int value2) {
 
         //If divider is 0, throw an Exception
         if (value2 == 0)
         {
-           throw new IllegalArgumentException("Cannot divide by 0");
+           throw new ArithmeticException("Cannot divide by 0");
         }
 
         return value1 / value2;
@@ -29,9 +33,9 @@ public class CalculatorController {
     public int square(@PathVariable @Valid int value) {
 
         //If the value is larger than the square root (both +/-) of the largest int, then throw an exception
-        if (value >= 46340 || value <= -46340) {
+       if (value >= 46340 || value <= -46340) {
             throw new IllegalArgumentException("Value used is too large or smaller than -46340");
-        }
+       }
         return value * value;
     }
 }
